@@ -1,3 +1,0 @@
-C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/4b2v184t/x86/CMakeFiles/xrimguilib.dir
-C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/4b2v184t/x86/CMakeFiles/edit_cache.dir
-C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/4b2v184t/x86/CMakeFiles/rebuild_cache.dir
