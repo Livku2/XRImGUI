@@ -10,15 +10,12 @@
 httplib::Client cli("http://localhost:5000");
 
 void Client::Setup() {
-    LOGI("1");
-
     auto setupres = cli.Get("/Setup");
 
     if (!setupres) {
         LOGE("RESULT IS NULL");
         return;
     }
-    LOGI("2");
 
     nlohmann::json jsonData;
     try {
@@ -27,7 +24,6 @@ void Client::Setup() {
         LOGE("Failed to parse JSON: %s", e.what());
         return;
     }
-    LOGI("3");
 
     if (jsonData.contains("windows") && jsonData["windows"].is_array()) {
         for (const auto &window : jsonData["windows"]) {
@@ -50,11 +46,9 @@ void Client::Setup() {
                 bool newline = entry["newline"].get<bool>();
 
                 entries.emplace_back(text, type, newline);
-                LOGI("Entry: %s (Type %d)", text.c_str(), type);
             }
 
             windows.emplace_back(name, entries);
-            LOGI("Window: %s", name.c_str());
         }
     } else {
         LOGE("NO WINDOWS");
@@ -69,7 +63,7 @@ void Client::SendUpdate(std::string name, EntryType type, bool toggleValue, floa
     auto res = cli.Post("/Update", j.dump(), "application/json");
 
     if(!res){
-        LOGE("Update Failed");
+        LOGE("Update Request Failed");
     }
     else{
         LOGI("Update Sent");
