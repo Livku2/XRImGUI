@@ -6,7 +6,7 @@
 #include <android/log.h>
 #include "ImGUIServer.hpp"
 
-void Update(std::string name, EntryType type, bool toggleValue, float sliderValue) {
+void Update(std::string name, EntryType type, bool toggleValue, float sliderValue, std::array<float,3> colorValue) {
     switch(type){
         case button:
             if(name == "Button"){
