@@ -1,7 +1,7 @@
 #include "ImGUIServer.hpp"
 
 void to_json(json &j, const Entry &e) {
-    j = json{{"text", e.text}, {"type", e.type}, {"newline", e.newline}};
+    j = json{{"text", e.text}, {"type", e.type}, {"sameline", e.sameline}};
 }
 void to_json(json &j, const Window &w) {
     j = json{{"name", w.name}, {"entries", w.entries}};

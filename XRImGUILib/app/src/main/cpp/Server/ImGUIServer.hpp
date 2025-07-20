@@ -24,11 +24,11 @@ struct Slider{
 struct Entry {
     std::string text;
     EntryType type;
-    bool newline;
+    bool sameline;
     Slider slider;
     std::array<float, 3> hexColor;
 
-    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}, std::array<float, 3> hexColor = {0,0,0}) : text(text), type(type), newline(newline), slider(slider), hexColor(hexColor) {}
+    Entry(const std::string &text, const EntryType &type, bool sameline, Slider slider = {0,0,0}, std::array<float, 3> hexColor = {0,0,0}) : text(text), type(type), sameline(sameline), slider(slider), hexColor(hexColor) {}
 };
 struct Window {
     std::string name;

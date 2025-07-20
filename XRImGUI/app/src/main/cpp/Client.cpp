@@ -10,8 +10,6 @@
 httplib::Client cli("http://localhost:5000");
 
 void Client::Setup() {
-    LOGI("1");
-
     auto setupres = cli.Get("/Setup");
 
     if (!setupres) {
@@ -45,9 +43,9 @@ void Client::Setup() {
 
                 std::string text = entry["text"].get<std::string>();
                 EntryType type = entry["type"].get<EntryType>();
-                bool newline = entry["newline"].get<bool>();
+                bool sameline = entry["sameline"].get<bool>();
 
-                entries.emplace_back(text, type, newline);
+                entries.emplace_back(text, type, sameline);
             }
 
             windows.emplace_back(name, entries);

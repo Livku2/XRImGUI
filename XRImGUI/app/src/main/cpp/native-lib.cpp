@@ -173,7 +173,7 @@ void MainLoopStep()
             ImGui::Begin(window.name.c_str());
 
             for(auto &entry : window.entries) {
-                if(entry.newline) ImGui::NewLine();
+                if(entry.sameline) ImGui::SameLine();
 
                 if(entry.type == toggle){
                     if (toggleMap.find(entry.text) == toggleMap.end()) {
@@ -201,7 +201,7 @@ void MainLoopStep()
                         colorPickerMap[entry.text] = entry.hexColor;
                     }
                     float cols[3] { colorPickerMap[entry.text][0], colorPickerMap[entry.text][1], colorPickerMap[entry.text][2] };
-                    if (ImGui::ColorPicker3(entry.text.c_str(), cols)) {
+                    if (ImGui::ColorEdit3(entry.text.c_str(), cols)) {
                         client->SendUpdate(entry.text, colorpicker, false, 0.f, std::array<float, 3>{cols[0], cols[1], cols[2]});
                         colorPickerMap[entry.text] = std::array<float, 3> {cols[0], cols[1], cols[2]};
                     }

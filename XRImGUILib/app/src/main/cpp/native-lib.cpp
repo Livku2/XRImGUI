@@ -18,6 +18,9 @@ void Update(std::string name, EntryType type, bool toggleValue, float sliderValu
         case toggle:
             LOGI("Toggle Changed With Name %s And Value %b", name.c_str(), toggleValue);
             break;
+        case colorpicker:
+            LOGI("Color: %f, %f, %f", colorValue[0], colorValue[1], colorValue[2]);
+            break;
     }
 }
 
@@ -29,9 +32,9 @@ void lib_main() {
     Data({
         Window("Hello Window", {
             Entry("ToggleTest", toggle, false),
-            Entry("ToggleTest2", toggle, true),
-            Entry("Button", button, true),
-            Entry("Color", colorpicker, true),
+            Entry("ToggleTest2", toggle, false),
+            Entry("Button", button, false),
+            Entry("Color", colorpicker, false),
         })
         }),
         Update
