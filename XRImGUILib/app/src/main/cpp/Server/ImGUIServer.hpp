@@ -4,7 +4,7 @@
 #include "nlohmann/json.hpp"
 #include <android/log.h>
 #include <functional>
-
+#include "array"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "Menu", __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, "Menu", __VA_ARGS__)
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "Menu", __VA_ARGS__)
@@ -25,8 +25,9 @@ struct Entry {
     EntryType type;
     bool newline;
     Slider slider;
+    std::array<float, 3> hexColor;
 
-    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}) : text(text), type(type), newline(newline), slider(slider) {}
+    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}, std::array<float, 3> hexColor = {0,0,0}) : text(text), type(type), newline(newline), slider(slider), hexColor(hexColor) {}
 };
 struct Window {
     std::string name;
@@ -42,9 +43,9 @@ struct Data {
 
 class ImGUIServer {
 public:
-    std::function<void(std::string name, EntryType type, bool toggleValue, float sliderValue)> UpdateFunction = nullptr;
+    std::function<void(std::string name, EntryType type, bool toggleValue, float sliderValue, std::array<float, 3> colorValue)> UpdateFunction = nullptr;
 
-    ImGUIServer(Data setupData, std::function<void(std::string name, EntryType type, bool toggleValue, float sliderValue)> updateFunction){
+    ImGUIServer(Data setupData, std::function<void(std::string name, EntryType type, bool toggleValue, float sliderValue, std::array<float, 3> colorValue)> updateFunction){
         UpdateFunction = updateFunction;
         Setup(setupData);
     }
