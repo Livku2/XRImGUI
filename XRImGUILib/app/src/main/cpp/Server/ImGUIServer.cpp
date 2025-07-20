@@ -33,9 +33,10 @@ void ImGUIServer::Setup(Data setupData) {
             auto type = static_cast<EntryType>(jsonData["type"].get<int>());
             bool toggleValue = jsonData["toggleValue"].get<bool>();
             float sliderValue = jsonData["sliderValue"].get<float>();
+            std::array<float, 3> colorValue = jsonData["colorValue"].get<std::array<float, 3>>();
 
             if(UpdateFunction){
-                UpdateFunction(name,type,toggleValue,sliderValue);
+                UpdateFunction(name,type,toggleValue,sliderValue,colorValue);
             }
         });
 
