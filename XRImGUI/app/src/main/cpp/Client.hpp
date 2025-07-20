@@ -1,10 +1,11 @@
 #include "httplib.h"
 #include "nlohmann/json.hpp"
-
+#include "array"
 enum EntryType{
     slider,
     toggle,
-    button
+    button,
+    colorpicker
 };
 
 struct Slider{
@@ -16,8 +17,9 @@ struct Entry {
     EntryType type;
     bool newline;
     Slider slider;
+    std::array<float, 3> hexColor;
 
-    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}) : text(text), type(type), newline(newline), slider(slider) {}
+    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}, std::array<float, 3> hexColor = {0,0,0}) : text(text), type(type), newline(newline), slider(slider), hexColor(hexColor) {}
 };
 
 struct Window {
@@ -37,7 +39,7 @@ class Client {
 public:
     std::vector<Window> windows;
 
-    void SendUpdate(std::string name, EntryType type, bool toggleValue, float sliderValue);
+    void SendUpdate(std::string name, EntryType type, bool toggleValue, float sliderValue, std::array<float, 3> colorValue);
 
     Client(){
         Setup();

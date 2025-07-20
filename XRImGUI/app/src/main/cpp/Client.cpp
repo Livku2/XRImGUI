@@ -10,12 +10,15 @@
 httplib::Client cli("http://localhost:5000");
 
 void Client::Setup() {
+    LOGI("1");
+
     auto setupres = cli.Get("/Setup");
 
     if (!setupres) {
         LOGE("RESULT IS NULL");
         return;
     }
+    LOGI("2");
 
     nlohmann::json jsonData;
     try {
@@ -24,6 +27,7 @@ void Client::Setup() {
         LOGE("Failed to parse JSON: %s", e.what());
         return;
     }
+    LOGI("3");
 
     if (jsonData.contains("windows") && jsonData["windows"].is_array()) {
         for (const auto &window : jsonData["windows"]) {
@@ -41,14 +45,16 @@ void Client::Setup() {
                     continue;
                 }
 
-                std::string text = entry["text"];
+                std::string text = entry["text"].get<std::string>();
                 EntryType type = entry["type"].get<EntryType>();
                 bool newline = entry["newline"].get<bool>();
 
                 entries.emplace_back(text, type, newline);
+                LOGI("Entry: %s (Type %d)", text.c_str(), type);
             }
 
             windows.emplace_back(name, entries);
+            LOGI("Window: %s", name.c_str());
         }
     } else {
         LOGE("NO WINDOWS");
@@ -57,13 +63,13 @@ void Client::Setup() {
 
 using namespace nlohmann;
 
-void Client::SendUpdate(std::string name, EntryType type, bool toggleValue, float sliderValue) {
-    auto j = json{{"name", name}, {"type", type}, {"toggleValue", toggleValue}, {"sliderValue", sliderValue}};
+void Client::SendUpdate(std::string name, EntryType type, bool toggleValue, float sliderValue, std::array<float, 3> colorValue) {
+    auto j = json{{"name", name}, {"type", type}, {"toggleValue", toggleValue}, {"sliderValue", sliderValue}, {"colorValue", colorValue}};
 
     auto res = cli.Post("/Update", j.dump(), "application/json");
 
     if(!res){
-        LOGE("Update Request Failed");
+        LOGE("Update Failed");
     }
     else{
         LOGI("Update Sent");

@@ -31,6 +31,7 @@ void lib_main() {
             Entry("ToggleTest", toggle, false),
             Entry("ToggleTest2", toggle, true),
             Entry("Button", button, true),
+            Entry("Color", colorpicker, true)
         })
         }),
         Update
