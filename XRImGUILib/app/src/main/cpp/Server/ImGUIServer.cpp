@@ -27,10 +27,8 @@ void ImGUIServer::Setup(Data setupData) {
         });
 
         server.Post("/Update", [this](const Request &req, Response &res) {
-            LOGI("Update Called");
-
+            
             json jsonData = json::parse(req.body);
-            LOGI("Body: %s", req.body.c_str());
             std::string name = jsonData["name"];
             auto type = static_cast<EntryType>(jsonData["type"].get<int>());
             bool toggleValue = jsonData["toggleValue"].get<bool>();
