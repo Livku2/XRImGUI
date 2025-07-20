@@ -1,0 +1,9 @@
+[submodule "XRImGUI/app/src/main/cpp/imgui"]
+	path = XRImGUI/app/src/main/cpp/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "XRImGUI/app/src/main/cpp/json"]
+	path = XRImGUI/app/src/main/cpp/json
+	url = https://github.com/nlohmann/json
+[submodule "XRImGUILib/app/src/main/cpp/json"]
+	path = XRImGUILib/app/src/main/cpp/json
+	url = https://github.com/nlohmann/json

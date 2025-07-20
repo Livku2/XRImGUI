@@ -1,0 +1,47 @@
+#include "httplib.h"
+#include "nlohmann/json.hpp"
+
+enum EntryType{
+    slider,
+    toggle,
+    button
+};
+
+struct Slider{
+    float min, max, start;
+};
+
+struct Entry {
+    std::string text;
+    EntryType type;
+    bool newline;
+    Slider slider;
+
+    Entry(const std::string &text, const EntryType &type, bool newline, Slider slider = {0,0,0}) : text(text), type(type), newline(newline), slider(slider) {}
+};
+
+struct Window {
+    std::string name;
+    std::vector<Entry> entries;
+
+    Window(const std::string &name) : name(name) {}
+    Window(const std::string &name, const std::vector<Entry> &entries) : name(name), entries(entries) {}
+};
+
+struct Data {
+    std::vector<Window> windows;
+};
+
+
+class Client {
+public:
+    std::vector<Window> windows;
+
+    void SendUpdate(std::string name, EntryType type, bool toggleValue, float sliderValue);
+
+    Client(){
+        Setup();
+    }
+private:
+    void Setup();
+};

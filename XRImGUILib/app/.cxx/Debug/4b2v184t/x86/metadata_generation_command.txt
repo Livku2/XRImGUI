@@ -1,0 +1,19 @@
+                        -HC:\Users\John\AndroidStudioProjects\XRImGUILib\app\src\main\cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=34
+-DANDROID_PLATFORM=android-34
+-DANDROID_ABI=x86
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DANDROID_NDK=C:\Users\John\AppData\Local\Android\Sdk\ndk\27.0.12077973
+-DCMAKE_ANDROID_NDK=C:\Users\John\AppData\Local\Android\Sdk\ndk\27.0.12077973
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\John\AppData\Local\Android\Sdk\ndk\27.0.12077973\build\cmake\android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=C:\Users\John\AppData\Local\Android\Sdk\cmake\3.22.1\bin\ninja.exe
+-DCMAKE_CXX_FLAGS=-std=c++17
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Users\John\AndroidStudioProjects\XRImGUILib\app\build\intermediates\cxx\Debug\4b2v184t\obj\x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\Users\John\AndroidStudioProjects\XRImGUILib\app\build\intermediates\cxx\Debug\4b2v184t\obj\x86
+-DCMAKE_BUILD_TYPE=Debug
+-BC:\Users\John\AndroidStudioProjects\XRImGUILib\app\.cxx\Debug\4b2v184t\x86
+-GNinja
+                        Build command args: []
+                        Version: 2

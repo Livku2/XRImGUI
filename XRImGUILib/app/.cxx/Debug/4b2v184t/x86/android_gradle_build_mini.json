@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "C:\\Users\\John\\AndroidStudioProjects\\XRImGUILib\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\John\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\John\\AndroidStudioProjects\\XRImGUILib\\app\\.cxx\\Debug\\4b2v184t\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\John\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\John\\AndroidStudioProjects\\XRImGUILib\\app\\.cxx\\Debug\\4b2v184t\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "xrimguilib::@6890427a1f51a3e7e1df": {
+      "artifactName": "xrimguilib",
+      "abi": "x86",
+      "output": "C:\\Users\\John\\AndroidStudioProjects\\XRImGUILib\\app\\build\\intermediates\\cxx\\Debug\\4b2v184t\\obj\\x86\\libxrimguilib.so",
+      "runtimeFiles": []
+    }
+  }
+}

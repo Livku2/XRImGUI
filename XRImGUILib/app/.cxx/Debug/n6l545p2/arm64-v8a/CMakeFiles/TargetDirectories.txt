@@ -1,0 +1,3 @@
+C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/n6l545p2/arm64-v8a/CMakeFiles/xrimguilib.dir
+C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/n6l545p2/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/John/AndroidStudioProjects/XRImGUILib/app/.cxx/Debug/n6l545p2/arm64-v8a/CMakeFiles/rebuild_cache.dir
