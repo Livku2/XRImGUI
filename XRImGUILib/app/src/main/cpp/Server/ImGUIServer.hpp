@@ -15,7 +15,8 @@ using namespace nlohmann;
 enum EntryType{
     slider,
     toggle,
-    button
+    button,
+    colorpicker
 };
 struct Slider{
     float min, max, start;
